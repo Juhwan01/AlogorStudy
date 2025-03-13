@@ -17,13 +17,13 @@ def solution(n):
             continue
             
         # 홀수만 확인 (3부터 num-1까지 2씩 증가)
-        is_prime = True
+        check = True
         for j in range(3, num, 2):
             if num % j == 0:
-                is_prime = False
+                check = False
                 break
                 
-        if is_prime:
+        if check:
             cnt += 1
     
     return cnt
