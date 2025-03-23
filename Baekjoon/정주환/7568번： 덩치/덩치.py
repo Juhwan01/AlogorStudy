@@ -1,25 +1,18 @@
-# import sys
-# input = sys.stdin.readline
-
-# member = {}
-# rank = {}
-# n = int(input())
-# for i in range(n):
-#     height, width = map(int, input().split())
-#     for mem in member.items():
-#         if mem[1][0] < width and mem[1][1] < height:
-#             rank[i]=rank.get(mem[0])
-#             rank[mem[0]]=rank.get(mem[0])+1
-#         else:
-#             rank[i]=rank.get(mem[0])
-#     if not rank.get(i):
-#         rank[i]=i+1
-#     member[i] = (width, height)
-    
-# for mem in rank.items():
-#     print(mem[1], end=' ')
-    
 import sys
 input = sys.stdin.readline
 
-    
+n = int(input())
+people = []
+for i in range(n):
+    height, weight = map(int, input().split())
+    people.append((height, weight))
+
+rank = []
+for i in range(n):
+    cnt = 1
+    for j in range(n):
+        if people[i][0] < people[j][0] and people[i][1] < people[j][1]:
+            cnt +=1
+    rank.append(cnt)
+
+print(' '.join(map(str, rank)))
