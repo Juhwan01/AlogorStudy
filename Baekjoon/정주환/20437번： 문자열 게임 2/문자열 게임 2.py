@@ -10,6 +10,7 @@ for i in range(n):
     for alpha in problem:
         if problem.count(alpha) >= contain and alpha not in result:
             result.append(alpha)
-    print(result)
-                
-            
+    
+
+
+  
