@@ -1,9 +1,12 @@
-N = int(input())
+import sys
+input = sys.stdin.readline
+
+n = int(input())
 
 cow_position = {}  
 cross_count = 0
 
-for _ in range(N):
+for _ in range(n):
     
     cow_id, position = map(int, input().split())
     
