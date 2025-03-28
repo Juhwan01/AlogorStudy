@@ -1,1 +1,2 @@
-#어... 내일 하겠습니다...
+import sys
+input = sys.stdin.readline
