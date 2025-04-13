@@ -1,14 +1,14 @@
 import sys
 input = sys.stdin.readline
 
-index_list=[]
 n = int(input())
 m = int(input())
 
 x = list(map(int,input().split()))
 
-index_list.append(0)
-index_list.append(x)
-index_list.append(m)
+max_val=max(x[0],n-x[-1])
 
-print(index_list)
+for i in range(1,len(x)):
+    light=(x[i]-x[i-1]+1)//2
+    max_val = max(max_val,light)
+print(max_val)
