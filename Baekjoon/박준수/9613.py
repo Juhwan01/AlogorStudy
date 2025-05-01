@@ -1,25 +1,29 @@
 import sys
-import math
+input = sys.stdin.readline
 
-input = sys.stdin.read
-data = input().split()
+def gcd(x,y):
+    while y:
+        x, y = y, x % y
+    return x
 
-N = int(data[0])
-A = list(map(int, data[1:N+1]))
-X = int(data[N+1])
+N = int(input())
+counts = []
+for _ in range(N):
+    count = list(map(int,input().split()))
+    counts.append(count)
+gcd_s = []
+for cnt in counts:
+    gcd_list = []
+    for i in range(0,cnt[0]):
+        a = i+1
+        while(True):
+            try:
+                gcd_list.append(gcd(cnt[i+1], cnt[a+1]))
+                a += 1
+            except IndexError:
+                break
 
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
+    gcd_s.append(gcd_list)
 
-coprime_sum = 0
-coprime_count = 0
-
-for num in A:
-    if gcd(X, num) == 1:
-        coprime_sum += num
-        coprime_count += 1
-
-average = coprime_sum / coprime_count
-print(f"{average:.6f}")
+for i in range(N):
+    print(sum(gcd_s[i]))
