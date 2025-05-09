@@ -1,13 +1,14 @@
-import sys
-input = sys.stdin.readline
-
 N, K = map(int, input().split())
-x = []
+a = []
 
-for _ in range(N):
+for i in range(N):
     W, V = map(int, input().split())
-    x.append([W, V])
+    a.append([W,V])
 
+dp = [0] * (K + 1)
 
-    
-
+for w, v in a:
+    for i in range(K, w - 1, -1):
+        dp[i] = max(dp[i], dp[i - w] + v)
+        
+print(max[dp])
