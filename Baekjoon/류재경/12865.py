@@ -11,4 +11,4 @@ for w, v in a:
     for i in range(K, w - 1, -1):
         dp[i] = max(dp[i], dp[i - w] + v)
         
-print(max[dp])
+print(dp[K])
