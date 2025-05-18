@@ -16,9 +16,9 @@ dic = dic[1:]
 
 for word in dic:
     target2=Counter(word)
-    intersection = target2-target1
-    result = sum(intersection.values())
-    if result<=1:
+    intersection1 = sum((target1-target2).values())
+    intersection2 = sum((target2-target1).values())
+    if intersection1<=1 and intersection2<=1:
         cnt+=1
 
 print(cnt)
